@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title><%= title %></title>
+
+		<meta name="description" content="Host Your Own Open Source Heroku">
+		<meta name="author" content="Rita Zhang">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/pikestreet.css" id="theme">
+
+		<!-- Code syntax highlighting - also available: visualstudio.css & zenburn.css -->
+		<link rel="stylesheet" href="lib/css/github.css">
+
+		<!-- Icons -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal pikestreet">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background-video="https://compass-ssl.surface.com/assets/11/4e/114ea758-b2b9-4567-bedd-77086c3d80fb.mp4?n=vid-loop-100314.mp4">
+					<div class="accent">
+						<h2><%= title %></h2>
+						<h1></h1>
+					</div>
+					<p>
+						<small><a href="http://ritazh.com">Rita Zhang</a> / <a href="http://twitter.com/ritazzhang">@ritazzhang</a></small>
+					</p>
+					<aside class="notes">
+					Whether you are a startup or an enterprise, you want happy and productive developers. Using containers, git, and orchestrators, you can now host and manage your own open source platforms similar to Heroku across clusters of machines for your organization. This providers self-service features to developers so they can focus on building awesome apps instead of worrying about infrastructure, while it removes dependencies on Heroku. 
+					</aside>
+				</section>
+				<section data-background="#ffffff">
+					<img src="img/developerworkflow.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					<div class="accent">
+						<h2>I'm a developer, I just want to:</h2>
+						<h3>Idea ==> Develop ==> Deploy ==> Manage ==> Scale</h3>
+					</div>
+				</section>
+				<section data-background="#ffffff">
+				<!--TODO: Add bubbles of PaaS -->
+						<h1>Private Heroku</h1>
+				</section>
+				<section>
+					<h1>What do they all have in common?</h1>
+					<br/>
+					<ul>
+						<li>Application Platform (PaaS)</li>
+						<li>Open Source</li>
+						<li>Smart Containers</li>
+						<li>Continuous Delivery</li>
+						<li>Scale Instantly</li>
+						<li>Focus on 12 Factor Apps</li>
+						<li>Rich Add-ons</li>
+						<li>Code Rollback</li>
+						<li>Buildpacks for App Dependencies</li>
+					</ul>
+					<aside class="notes">
+						<p>
+						These are all open source platforms for deploying, scaling and managing applications.
+						</p>
+						<p>
+						Unlike a hosted PaaS like Heroku, these platforms are designed to run anywhere in cloud, on Premises. It's essentially a "Private Heroku".
+						</p>
+						<p>For runtime, they all have smart containers with fully managed runtime environment, configuration, orchestration, load balancing, failover, loggin, and security support.
+						</p>
+						<p>
+						With native git integration, you can push updates and manage releases directly to these platforms. You can also integrate with other systems like GitHub or Jenkins to make building, iterating, and staging apps easier.
+						</p>
+						<p>
+						You can scale components in your application in an instance, both vertically and horizontally.
+						</p>
+						<p>
+						They all follow the same philosophy as Heroku with the 12 factor apps methodology. It focuses on supporting applications that need to run well across a distributed system.
+						</p>
+						<p>
+						They each have their own ecosystems of add-ons that allow you to extend your application with pre-integrated services
+						</p>
+						<p>
+						With native git integration, you can manage releases, deploy updates, and perform code rollback using the normal git workflow process.
+						</p>
+						<p>
+						TODO:
+						As a developer, I want to work with language and frameworks I already love. These platforms all support existing Herokuish Buildpacks that support most of the common frameworks and language we use today. As Buildpacks are extensible, you can develop your own custom buildpacks to support dependencies in your application.
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<h1>What doe this mean for me?</h1>
+					<aside class="notes">
+						<p>
+						The goal of a PaaS is to empower software teams to take responsibility for the entire application lifecycle.
+						With a PaaS, developers deploy, scale and manage their own applications and CI/CD pipelines
+						without having to involve the operations team.
+						</p>
+						<p>
+						This is more than an "Orchestration tool" which helps you run containers across a distributed system. It includes orchestration features, but it is much more than orchestration.
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Developer Self-Service</h2>
+					<ul>
+						<li>Create applications</li>
+						<li>Deploy code or Docker images</li>
+						<li>Configure runtime environment</li>
+						<li>Manage releases and rollbacks</li>
+						<li>Run admin commands</li>
+						<li>View aggregated logs</li>
+						<li>Scale via the process model</li>
+						<li>Collaborate with a team</li>
+					</ul>
+					<aside class="notes">
+						<p>
+						PaaS provides developers with a self-service capability.
+						</p>
+						<p>
+						With a PaaS, developers to create applications, push deploys with git, manage runtime configuration,
+						handle releases and rollbacks, run admin tasks like schema migrations, view aggregated logs,
+						scale the number of containers in service -- tasks typically associated with operations, not developers.
+						</p>
+						<p>
+						If you've ever seen Heroku in action, you'll know that a developer with self-service capabilities
+						can be amazingly productive -- and more importantly, happy!  Who doesn't want happy developers?
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<script type="text/javascript" src="https://asciinema.org/a/11001.js" id="asciicast-11001" data-speed="1" data-size="medium" async=""></script>
+					<aside class="notes">
+						<p>
+						To provide more context, let me show you what the developer experience looks like with few examples.
+						</p>
+					</aside>
+				</section>
+
+				<section data-background="#ffffff">
+					<!-- <img src="img/DeisLogo.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0"> -->
+					<!--TODO: Add Dokku image -->
+				</section>
+
+				<section>
+					<h1>What is Dokku?</h1>
+					<br/>
+					<ul>
+						<li>100% open source</li>
+						<li>TODO:~2,800 stars, ~160 watchers, ~350 forks</li>
+						<li>TODO: Language and OS</li>
+					</ul>
+					<aside class="notes">
+						<p>
+						Dokku is an open source platform for deploying, scaling and managing applications.
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<!-- TODO dokku foundation -->
+					<!-- <img src="img/DeisFoundation.png" class="stretch" style="border:none;background:none;box-shadow:0 0 0"/> -->
+					<aside class="notes">
+						<p>
+						At the most basic level, Dokku runs ...
+						</p>
+					</aside>
+				</section>   
+
+				<section data-background="#ffffff">
+					<img src="img/DeisLogo.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+				</section>
+
+				<section>
+					<h1>What is Deis?</h1>
+					<br/>
+					<ul>
+						<li>100% open source</li>
+						<li>~2,800 stars, ~160 watchers, ~350 forks</li>
+						<li>Go, Python &amp; Shell</li>
+						<li>Integrate with open source ecosystem</li>
+					</ul>
+					<aside class="notes">
+						<p>
+						Deis is an open source platform for deploying, scaling and managing applications.
+						</p>
+						<p>
+						The platform itself is mostly Go with a mix of Python and some Shell glue.
+						The entire platform is open source.
+						</p>
+						<p>
+						The project has solid traction on GitHub. 
+						growing users and contributors.
+						</p>
+						<p>
+						Rather than build it all on their own, they integrated with adjancent projects and brought all that goodness into Deis. For example, v1.9 comes with kubernetes and mesos scheduler. They are also considering using Cloud Foundry service brokers to integrate with other services.
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<img src="img/DeisFoundation.png" class="stretch" style="border:none;background:none;box-shadow:0 0 0"/>
+					<aside class="notes">
+						<p>
+						At the most basic level, Deis runs on CoreOS which provides a lightweight operating system
+						that includes etcd, a distributed data store similar to Zookeeper but based on the Raft protocol.
+						It also includes Fleet, which is a simple cluster scheduler that's backed by etcd.
+						</p>
+						<p>
+						On top of CoreOS sits Docker, which is central to Deis.
+						Everything Deis does, it does inside a Docker container.
+						The applications we deploy are run as Docker containers.
+						The platform itself is a series of Docker containers.
+						This makes Deis incredibly easy to operate and easy to hack on.
+						</p>
+						<p>
+						Deis, of course, sits on top of Docker and CoreOS.
+						</p>
+					</aside>
+				</section>   
+				
+
+				<section>
+					<script type="text/javascript" src="https://asciinema.org/a/11001.js" id="asciicast-11001" data-speed="1" data-size="medium" async=""></script>
+					<aside class="notes">
+						<p>
+						To provide some more context, let me show you what the developer experience looks like with Deis.
+						</p>
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Installing Deis on Azure
+						#### Create CoreOS cluster
+						##### After you get the Deis source and installed Azure CLI:
+						```shell
+						$ azure login
+						$ azure config mode arm
+						```
+						##### Generate a new discovery URL for cluster:
+						```shell
+						$ ./create-azure-user-data $(curl -s https://discovery.etcd.io/new)
+						```
+						##### Edit `parameters.json` to configure the parameters required for the cluster:
+						```shell
+						$ azure group create --name deis --location "Australia East" 
+						--deployment-name deis --template-file 
+						arm-template.json --parameters-file parameters.json
+
+						```
+					</script>
+					<aside class="notes">
+						<p>
+						First you get the Deis source here: http://docs.deis.io/en/latest/installing_deis/quick-start/#get-the-source
+						</p>
+						<p>
+						Then you install the Azure CLI to login and to create what you need in Azure.
+						</p>
+						<p>
+						 First we need to generate the discovery URL for the cluster so that all the nodes in the cluster can see each other. Then we edit the parameter.json file to provide values needed by Azure to spin up the CoreOS cluster. Then from shell, you tell Azure to create what you need.
+						</p>
+						<p>
+						Each instance will have a public IP address which can be used to log in via SSH or as a tunnel endpoint for deisctl.
+						</p>
+					</aside>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Let's look at the CoreOS cluster!</h2>
+					```
+					$ azure vm show deisNode0 --resource-group ritadeis | grep 'Public IP address'
+					```
+					</script>
+					<aside class="notes">
+					<p>
+					</p>
+					</aside>
+				</section>
+				<section>
+				<p>
+				</p>
+				<aside class="notes">
+					<p>
+						A Procfile is a text file named Procfile placed in the root of your application that lists the process types in an application. Each process type is a declaration of a command that is executed when a container of that process type is started.
+						All the language and frameworks using Heroku’s Buildpacks declare a web process type, which starts the application server. 
+					</p>
+				</aside>
+				</section>
+
+				<section>
+					<h1>How does it work?</h1>
+				</section>
+
+				
+
+				<section>
+          			<img src="img/DeisSystemDiagram.png" class="stretch" style="border:none;background:none;box-shadow:0 0 0"/>
+					<aside class="notes">
+						<p>
+						Diving into a system diagram we can start to get more technical.
+						</p>
+						Starting in the lower left, the operator uses the "Deis Control API" to stand up the
+						cluster's "Control Plane" and "Data Plane".
+						</p>
+						<p>
+						These terms come from the world of networking equipment (routers and switches),
+						but they're a good fit for describing the architecture of a PaaS.
+						</p>
+						<p>
+						End-users of the platform, typically developers, interact with the Control Plane
+						which is the brains of the platform.
+						</p>
+						<p>
+						The Control Plane dispatches work to the Data Plane via a "Cluster Scheduler".
+						"Work" in this case refers to containers hosted by Deis. Your applications, in other words.
+						</p>
+						<p>
+						At the top, the "Router Mesh" is used to route traffic to both the Control Plane
+						and Data Plane.  Because the router mesh is usually connected to the public Internet,
+						we suggest a separate load balancer for SSL termination.
+						</p>
+						<p>
+						For small deployments you can run the entire platform
+						-- Control Plane, Data Plane and Router Mesh -- on just 3 servers.
+						</p>
+						<p>
+						For larger deployments, you'll want to isolate the Control Plane and Router Mesh,
+						then scale your data plane out to as many servers as you need.
+						</p>
+					</aside>
+				</section>
+				<!--<section class="inverse" data-background="#ffffff">
+					<h1>Icons</h1>
+					<div class="icon-group">
+						<i class="fa fa-user fa-fw"></i>
+						<i class="fa fa-users fa-fw"></i>
+						<i class="fa fa-university fa-fw"></i>
+					</div>
+					<p><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> is included, so go ahead and use some icons!</p>
+				</section>
+
+				<section data-background="assets/patternbg.png" data-background-size="700px" data-background-repeat="repeat">
+					<section>
+						<h1>Patterns & Fragments</h1>
+						<h1 class="alt">Moving Parts</h1>
+						<br />
+						<h3>
+							<span class="fragment fade-in"><i class="fa fa-rocket"></i> Hardware</span>
+							<span class="fragment fade-in"><i class="fa fa-mobile"></i> Software</span>
+							<span class="fragment fade-in"><i class="fa fa-cloud"></i> Data</span>
+							<span class="fragment fade-in"><i class="fa fa-lock"></i> Security</span>
+						</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Vertical Slides</h2>
+						<p>Slides can be nested inside of each other.</p>
+						<p>Use the <em>Space</em> key to navigate through all slides.</p>
+						<br>
+						<i class="fa fa-arrow-down fa-4x"></i>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>That's it, time to go back up.</p>
+						<br>
+						<i class="fa fa-arrow-up fa-4x"></i>
+					</section>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Fragments</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's different types of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment current-visible">current-visible</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Highlighted, Editable Code!</h2>
+					<pre><code data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+				<section>
+					<h2>Code Editors</h2>
+					<p>The beauty of HTML5 & JavaScript: Embed whatever you want, including code editors like JSBin.</p>
+					<a class="jsbin-embed" href="http://jsbin.com/kutobaqobu/2/embed?js,console">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
+				</section>
+
+				<section>
+					<h2>Marvelous List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Tabular Tables</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Value</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Apples</td>
+								<td>$1</td>
+								<td>7</td>
+							<tr>
+							<tr>
+								<td>Lemonade</td>
+								<td>$2</td>
+								<td>18</td>
+							<tr>
+							<tr>
+								<td>Bread</td>
+								<td>$3</td>
+								<td>2</td>
+							<tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Speaker View</h2>
+					<p>There's a speaker view. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
+					<p>Press the <em>S</em> key to try it out.</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+				-->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script src="js/pikestreet.js"></script>
+	</body>
+</html>
