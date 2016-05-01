@@ -1,5 +1,4 @@
-# Welcome to Decoded Conference 
-## Session: Host Your Own Open Source Heroku
+# Decoded Conference Session - Host Your Own Open Source Heroku
 
 **Live Presentation**: 
 
