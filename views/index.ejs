@@ -56,7 +56,7 @@
 						<small><a href="http://twitter.com/ritazzhang">@ritazzhang</a></small>
 					</p>
 					<aside class="notes">
-					Whether you are a startup or an enterprise, you want happy and productive developers. Using containers, git, and orchestrators, you can now host and manage your own open source platforms similar to Heroku across clusters of machines for your organization. This providers self-service features to developers so they can focus on building awesome apps instead of worrying about infrastructure, while it removes dependencies on Heroku. 
+					Whether you are a startup or an enterprise, you want happy and productive developers. Using containers, git, and orchestrators, you can now host and manage your own open source platforms similar to Heroku across clusters of machines for your organization. This providers self-service features to developers so they can focus on building awesome apps instead of worrying about infrastructure. Meanwhile, it removes an organization's dependencies on Heroku and reduces compute cost. 
 					</aside>
 				</section>
 				<section data-background-video="https://s3-us-west-2.amazonaws.com/coverr/mp4/Coder.mp4">
@@ -65,15 +65,54 @@
 						<p>I just want to focus on building apps</p>
 					</div>
 				</section>
+				<section data-background="#ffffff">
+					<h1>What is Heroku?</h1>
+					<img src="img/heroku.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					<ul>
+						<li>Hosted PaaS</li>
+						<li>Users deploy their application via git push</li>
+						<li>Rich ecosystem of add-ons for 3rd party integration</li>
+						<li>Many options for logging, caching, monitoring</li>
+						<li>Perform commands via Heroku toolbelt CLI</li>
+					</ul>
+					<aside class="notes">
+						<p>
+						Cloud Platform as a Service which supports application written in for Ruby, Java, Node.js, Scala, Clojure, Python and PHP and (undocumented) Perl.
+						</p>
+						<p>
+						users deploy their application on Heroku by simply performing a ‘git push’.
+						</p>
+						<p>
+						many plugins for various things such as connecting with databases, monitoring performance and logging
+						</p>
+					</aside>
+				</section>
+				<section data-background="#ffffff">
+					<h1>What is Heroku?</h1>
+					<img src="img/herokudeployprocess.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					<aside class="notes">
+						<p>
+						When application is pushed to Heroku it turns the code into an executable slug, which includes your application code and all of it's dependencies.
+						Heroku Buildpacks provide framework and runtime support for your applications. 
+						</p>
+						<p>
+						Buildpacks typically examine user-provided artifacts to determine what dependencies to download and how to configure applications to communicate with bound services.
+						Steps:
+							1: Detect language
+							2: Compile
+							3: Release
+						</p>
+					</aside>
+				</section>
+
 				<section data-background="img/patternbg.png" data-background-size="700px" data-background-repeat="repeat">
 					<section>
 					<!--TODO: Add bubbles of PaaS -->
-						<h1>Host Your Own Private Heroku</h1>
+						<h1>Let's Host Our Own Private Heroku!</h1>
 					</section>
 				</section>
 				<section>
 					<h2>What do They All Have in Common?</h2>
-					<br/>
 					<ul>
 						<li>Application Platform (PaaS)</li>
 						<li>Open Source</li>
@@ -91,15 +130,15 @@
 						These are all open source platforms for deploying, scaling and managing applications.
 						</p>
 						<p>
-						Unlike a hosted PaaS like Heroku, these platforms are designed to run anywhere in cloud, on Premises. It's essentially a "Private Heroku". Build once, run anywhere.
+						Unlike a hosted PaaS like Heroku, these platforms are designed to run anywhere in cloud, or on Premises. It's essentially a "Private Heroku". Build once, run anywhere.
 						</p>
-						<p>For runtime, they all have smart containers with fully managed runtime environment, configuration, orchestration, load balancing, failover, loggin, and security support.
-						</p>
-						<p>
-						With native git integration, you can push updates and manage releases directly to these platforms. You can also integrate with other systems like GitHub or Jenkins to make building, iterating, and staging apps easier.
+						<p>For runtime, they all have smart containers with fully managed runtime environment, configuration, orchestration, load balancing, failover, logging, and security support.
 						</p>
 						<p>
-						You can scale components in your application in an instance, both vertically and horizontally.
+						With native git integration, you can push updates and manage releases directly to these platforms. You can also integrate with other systems like GitHub, TravisCI, Jenkins to make building, iterating, and staging apps easier.
+						</p>
+						<p>
+						You can scale components in your application in an instant, both vertically and horizontally.
 						</p>
 						<p>
 						They all follow the same philosophy as Heroku with the 12 factor apps methodology. It focuses on supporting applications that need to run well across a distributed system.
@@ -120,9 +159,12 @@
 					<h1>Container vs VM</h1>
 					<img src="img/containersvsvm.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
 				</section>
+				<section data-background="#ffffff">
+					<img src="img/containerappdiff.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+				</section>
 
 				<section>
-					<h1>What Doe This Mean for Me?</h1>
+					<h1>What Does This Mean for Me?</h1>
 					<aside class="notes">
 						<p>
 						The goal of a PaaS is to empower software teams to take responsibility for the entire application lifecycle.
@@ -142,9 +184,9 @@
 						<li>Deploy code or Docker images</li>
 						<li>Configure runtime environment</li>
 						<li>Manage releases and rollbacks</li>
-						<li>Run admin commands</li>
 						<li>View aggregated logs</li>
 						<li>Scale via the process model</li>
+						<li>Share resources</li>
 						<li>Collaborate with a team</li>
 					</ul>
 					<aside class="notes">
@@ -176,7 +218,7 @@
 						<li>~11,547 stars, ~350 watchers, ~1,011 forks</li>
 						<li>Push any Heroku-compatible applications via Git</li>
 						<li>Extensible with dokku plugins</li>
-						<li>Single-host instance</li>
+						<li>Single-host instance, not multi-host, multi-tenant</li>
 						<li>Dockerfile deployment, image tagging</li>
 						<li>Zero-downtime deploy</li>
 					</ul>
@@ -188,12 +230,12 @@
 						Powered by Docker, you can install Dokku on any hardware that runs a VM with Ubuntu 14.04 x64 or cloud providers like Azure, DigitalOcean, etc
 						</p>
 						<p>
-						You can setup SSL/TLS to replace Heroku's SSL Endpoint add-on, replace Heroku Scheduler with scheduled jobs using the Clockwork gem. Move your data using the postgres or mongo plugin. 
-						</p>
-						<p>
-						Dokku is currently sponsored by the enterprise grade, multi-host PaaS project Deis.
+						Dokku is currently sponsored by the multi-host PaaS project Deis.
 						</p>
 					</aside>
+				</section>
+				<section data-background="#ffffff">
+					<img src="img/dokkutopology.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
 				</section>
 
 				<section data-background="#ffffff">
@@ -207,6 +249,7 @@
 						<li>100% open source</li>
 						<li>~5,516 stars, ~289 watchers, ~865 forks</li>
 						<li>Go, Python &amp; Shell</li>
+						<li>Multi-host PaaS</li>
 						<li>Integrate with open source ecosystem</li>
 					</ul>
 					<aside class="notes">
@@ -244,31 +287,51 @@
 						The platform itself is a series of Docker containers.
 						This makes Deis incredibly easy to operate and easy to hack on.
 						</p>
-						<p>
-						Deis, of course, sits on top of Docker and CoreOS.
-						</p>
 					</aside>
 				</section>   
+
+				<section data-background="#ffffff">
+					<img src="img/deistopology.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+				</section>
+				<section data-background="#ffffff">
+					<img src="img/DeisGitPushWorkflow.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+				</section>
 			
 				<section data-background="#ffffff">
-					<img src="img/cf-logo.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					<img src="img/cflogo.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
 				</section>
 
 				<section>
 					<h1>What is Cloud Foundry?</h1>
 					<br/>
 					<ul>
-						<li></li>
+						<li>Open source PaaS with Enterprise offerings</li>
+						<li>1,300 contributors, 711K lines of code, 3,000 PRs</li>
+						<li>Has it's own Buildpacks, similar to Heroku</li>
+						<li>Rich add-ons for 3rd party integration</li>
+						<li>A Marketplace of apps and services</li>
+						<li>App Metrics</li>
 					</ul>
 					<aside class="notes">
 						<p>
-						CF is an open source application platform that deploys, runs, and scales applications as containers. It enables developers to deploy and scale applications in minutes, regardless of the cloud provider or the development framework in use.
+						CF is an open source PaaS, originally developed by VMware and now owned by Pivotal, startup in SF. 
 						</p>
 						<p>
+						It has a solid reputation in the enterprise space powering products such as IBM Bluemix and the Chinese search engine Baidu. New deal with Yahoo Japan.
+						</p>
+						<p>
+						Provides developers easy access to services like databases, messaging services, caching, etc
+						<p>
+						Similar to Heroku, developers can deploy applications using a variety of CF buildpacks to package the framework and runtime dependencies required for their application.
+						</p>
+						<p>
+						App Metrics - built-in monitoring of throughput, response times, memory, CPU load, and errors. Offers a Web-based Dashboard that allows developers to manage app and view performance.
 						</p>
 					</aside>
 				</section>
-
+				<section data-background="#ffffff">
+					<img src="img/CFTopology.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+				</section>
 			</div>
 
 		</div>
