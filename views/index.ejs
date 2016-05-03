@@ -141,7 +141,7 @@
 						You can scale components in your application in an instant, both vertically and horizontally.
 						</p>
 						<p>
-						They all follow the same philosophy as Heroku with the 12 factor apps methodology. It focuses on supporting applications that need to run well across a distributed system.
+						They all follow the same philosophy as Heroku with the 12 factor apps methodology. It focuses on supporting applications that need to run well across a distributed system. http://12factor.net/
 						</p>
 						<p>
 						They each have their own ecosystems of add-ons that allow you to extend your application with pre-integrated services
@@ -158,6 +158,14 @@
 				<section data-background="#ffffff">
 					<h1>Container vs VM</h1>
 					<img src="img/containersvsvm.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					<aside class="notes">
+						<p>
+						In VMs, each virtualized app inclues not only the application, its binaries and dependencies, but also the entire guest OS.
+						</p>
+						<p>
+						Containers comprise just the application and its dependencies. It runs as an isolated process in userspace on the host OS, sharing the kernel with other containers. Sharing resources, dependencies, but still maintain isolation. Quick to spin up and down.
+						</p>
+					</aside>
 				</section>
 				<section data-background="#ffffff">
 					<img src="img/containerappdiff.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
@@ -330,7 +338,45 @@
 					</aside>
 				</section>
 				<section data-background="#ffffff">
-					<img src="img/CFTopology.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					<img src="img/cftopology.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+				</section>
+				<section data-background="#000000">
+					<img src="img/cfarch.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">	
+					<aside class="notes">
+						<p>
+						DEA manages Warden containers, stages and runs apps
+						</p>
+						<p>
+						When a new application or a new version of an application is pushed to Cloud Foundry, the Cloud Controller selects a DEA from the pool of available DEAs to stage the application. The DEA uses the appropriate buildpack to stage the application. 
+						</p>
+						<p>
+						Warden provides a simple API for managing isolated environments or containers. These containers can be limited in terms of CPU usage, memory usage, disk usage, and network access. The only currently supported OS is Linux.
+						</p>
+					</aside>
+				</section>
+				<section>
+					<h1>Resources</h1>
+					<br/>
+					<ul>
+						<li><a href="http://dokku.viewdocs.io/dokku/">http://dokku.viewdocs.io/dokku/</a></li>
+						<li><a href="http://docs.deis.io/en/latest/">http://docs.deis.io/en/latest/</a></li>
+						<li><a href="https://docs.cloudfoundry.org">https://docs.cloudfoundry.org</a></li>
+					</ul>
+				</section>
+				<section>
+					<h1>Q&A</h1>
+					<br/>
+					<ul>
+						<li>
+						<span class="fragment"><i class="fa fa-mobile"></i> github/ritazh</span>
+						</li>
+						<li>
+						<span class="fragment"><i class="fa fa-cloud"></i> https://ritazh.com</span>
+						</li>
+						<li>
+						<span class="fragment fade-in"><i class="fa fa-lock"></i> @ritazzhang</span>
+						</li>
+					</ul>
 				</section>
 			</div>
 
