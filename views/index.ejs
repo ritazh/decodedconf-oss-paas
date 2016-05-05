@@ -44,16 +44,18 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-background-video="https://s3-us-west-2.amazonaws.com/coverr/mp4/White-Keyboard.mp4">
-					<div class="accent">
-						<h2><%= title %></h2>
-						<h1></h1>
+					<div>
+						<h2>Host Your Own</h2>
+						<h2>Open Source Heroku</h2>
+						<!-- <h2><%= title %></h2> -->
 					</div>
+					<br/>
 					<p>
-						<small><a href="http://ritazh.com">Rita Zhang</a></small>
+						Rita Zhang
 						<br/>
-						<small>Open Source Engineer @ Microsoft</small>
+						Open Source Engineer @ Microsoft
 						<br/>
-						<small><a href="http://twitter.com/ritazzhang">@ritazzhang</a></small>
+						<a href="https://twitter.com/ritazzhang">@ritazzhang</a> | <a href="https://twitter.com/hashtag/DecodedConf">#DecodedConf</a>
 					</p>
 					<aside class="notes">
 					Whether you are a startup or an enterprise, you want happy and productive developers. Using containers, git, and orchestrators, you can now host and manage your own open source platforms similar to Heroku across clusters of machines for your organization. This providers self-service features to developers so they can focus on building awesome apps instead of worrying about infrastructure. Meanwhile, it removes an organization's dependencies on Heroku and reduces compute cost. 
@@ -69,11 +71,11 @@
 					<h1>What is Heroku?</h1>
 					<img src="img/heroku.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
 					<ul>
-						<li>Hosted PaaS</li>
-						<li>Users deploy their application via git push</li>
-						<li>Rich ecosystem of add-ons for 3rd party integration</li>
-						<li>Many options for logging, caching, monitoring</li>
-						<li>Perform commands via Heroku toolbelt CLI</li>
+						<li class="fragment roll-in">Hosted PaaS</li>
+						<li class="fragment roll-in">Users deploy their application via git push</li>
+						<li class="fragment roll-in">Rich ecosystem of add-ons for 3rd party integration</li>
+						<li class="fragment roll-in">Many options for logging, caching, monitoring</li>
+						<li class="fragment roll-in">Perform commands via Heroku toolbelt CLI</li>
 					</ul>
 					<aside class="notes">
 						<p>
@@ -87,6 +89,23 @@
 						</p>
 					</aside>
 				</section>
+
+				<section data-background="#ffffff">
+					<h1>Container vs VM</h1>
+					<img src="img/containersvsvm.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					<aside class="notes">
+						<p>
+						In VMs, each virtualized app inclues not only the application, its binaries and dependencies, but also the entire guest OS.
+						</p>
+						<p>
+						Containers comprise just the application and its dependencies. It runs as an isolated process in userspace on the host OS, sharing the kernel with other containers. Sharing resources, dependencies, but still maintain isolation. Quick to spin up and down.
+						</p>
+					</aside>
+				</section>
+				<section data-background="#ffffff">
+					<img src="img/containerappdiff.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+				</section>
+
 				<section data-background="#ffffff">
 					<img src="img/herokudeployprocess.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
 					<aside class="notes">
@@ -132,25 +151,28 @@
 					</aside>
 				</section>
 
-				<section data-background="img/patternbg.png" data-background-size="700px" data-background-repeat="repeat">
+				<section data-background-size="700px" ><!-- patternbg.png -->
 					<section>
-					<!--TODO: Add bubbles of PaaS -->
 						<h1>Let's Host Our Own Private Heroku!</h1>
+						<img src="img/logos.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
 					</section>
 				</section>
+					<section><img src="img/dokkutopology.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					</section>
+
 				<section>
 					<h2>What do They All Have in Common?</h2>
 					<ul>
-						<li>Application Platform (PaaS)</li>
-						<li>Open Source</li>
-						<li>Smart Containers</li>
-						<li>Continuous Delivery</li>
-						<li>Scale Instantly</li>
-						<li>Focus on 12 Factor Apps</li>
-						<li>Rich Add-ons</li>
-						<li>Code Rollback</li>
-						<li>Buildpacks for App Dependencies</li>
-						<li>Zero-downtime deploy</li>
+						<li class="fragment roll-in">Application Platform (PaaS)</li>
+						<li class="fragment roll-in">Open Source</li>
+						<li class="fragment roll-in">Smart Containers</li>
+						<li class="fragment roll-in">Continuous Delivery</li>
+						<li class="fragment roll-in">Scale Instantly</li>
+						<li class="fragment roll-in">Focus on 12 Factor Apps</li>
+						<li class="fragment roll-in">Rich Add-ons</li>
+						<li class="fragment roll-in">Code Rollback</li>
+						<li class="fragment roll-in">Buildpacks for App Dependencies</li>
+						<li class="fragment roll-in">Zero-downtime deploy</li>
 					</ul>
 					<aside class="notes">
 						<p>
@@ -182,21 +204,6 @@
 						</p>
 					</aside>
 				</section>
-				<section data-background="#ffffff">
-					<h1>Container vs VM</h1>
-					<img src="img/containersvsvm.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
-					<aside class="notes">
-						<p>
-						In VMs, each virtualized app inclues not only the application, its binaries and dependencies, but also the entire guest OS.
-						</p>
-						<p>
-						Containers comprise just the application and its dependencies. It runs as an isolated process in userspace on the host OS, sharing the kernel with other containers. Sharing resources, dependencies, but still maintain isolation. Quick to spin up and down.
-						</p>
-					</aside>
-				</section>
-				<section data-background="#ffffff">
-					<img src="img/containerappdiff.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
-				</section>
 
 				<section>
 					<h1>What Does This Mean for Me?</h1>
@@ -215,14 +222,14 @@
 				<section>
 					<h2>Developer Self-Service</h2>
 					<ul>
-						<li>Create applications</li>
-						<li>Deploy code or Docker images</li>
-						<li>Configure runtime environment</li>
-						<li>Manage releases and rollbacks</li>
-						<li>View aggregated logs</li>
-						<li>Scale via the process model</li>
-						<li>Share resources</li>
-						<li>Collaborate with a team</li>
+						<li class="fragment roll-in">Create applications</li>
+						<li class="fragment roll-in">Deploy code or Docker images</li>
+						<li class="fragment roll-in">Configure runtime environment</li>
+						<li class="fragment roll-in">Manage releases and rollbacks</li>
+						<li class="fragment roll-in">View aggregated logs</li>
+						<li class="fragment roll-in">Scale via the process model</li>
+						<li class="fragment roll-in">Share resources</li>
+						<li class="fragment roll-in">Collaborate with a team</li>
 					</ul>
 					<aside class="notes">
 						<p>
@@ -248,14 +255,14 @@
 					<h1>What is Dokku?</h1>
 					<br/>
 					<ul>
-						<li>Docker powered mini-Heroku ~200 lines of Bash</li>
-						<li>100% open source</li>
-						<li>~11,547 stars, ~350 watchers, ~1,011 forks</li>
-						<li>Push any Heroku-compatible applications via Git</li>
-						<li>Extensible with dokku plugins</li>
-						<li>Single-host instance, not multi-host, multi-tenant</li>
-						<li>Dockerfile deployment, image tagging</li>
-						<li>Zero-downtime deploy</li>
+						<li class="fragment roll-in">Docker powered mini-Heroku ~200 lines of Bash</li>
+						<li class="fragment roll-in">100% open source</li>
+						<li class="fragment roll-in">~11,547 stars, ~350 watchers, ~1,011 forks</li>
+						<li class="fragment roll-in">Push any Heroku-compatible applications via Git</li>
+						<li class="fragment roll-in">Extensible with dokku plugins</li>
+						<li class="fragment roll-in">Single-host instance, not multi-host, multi-tenant</li>
+						<li class="fragment roll-in">Dockerfile deployment, image tagging</li>
+						<li class="fragment roll-in">Zero-downtime deploy</li>
 					</ul>
 					<aside class="notes">
 						<p>
@@ -271,6 +278,38 @@
 				</section>
 				<section data-background="#ffffff">
 					<img src="img/dokkutopology.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
+					<aside class="notes">
+						<p>
+						VM, Storage account, NIC, Public IP, vNet
+						</p>
+					</aside>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Deploying to Dokku</h2>
+					```
+					$ dokku apps
+					$ dokku apps:create myapp
+
+					Add a service like mongo:
+					$ sudo dokku plugin:install https://github.com/dokku/dokku-mongo.git mongo
+					$ dokku mongo:create mongo
+
+					Bind the service to app:
+					$ dokku mongo:link mongo myapp
+
+					Deploy an app
+					$ git remote add dokku dokku@...
+					$ git push dokku master
+
+					Scale the app
+					$ dokku ps:scale myapp web=2
+
+					Set environment variables
+					$ dokku config:set myapp MYVARIABLE=myvalue
+
+					```
+					</script>
 				</section>
 
 				<section data-background="#ffffff">
@@ -281,11 +320,11 @@
 					<h1>What is Deis?</h1>
 					<br/>
 					<ul>
-						<li>100% open source</li>
-						<li>~5,516 stars, ~289 watchers, ~865 forks</li>
-						<li>Go, Python &amp; Shell</li>
-						<li>Multi-host PaaS</li>
-						<li>Integrate with open source ecosystem</li>
+						<li class="fragment roll-in">100% open source</li>
+						<li class="fragment roll-in">~5,516 stars, ~289 watchers, ~865 forks</li>
+						<li class="fragment roll-in">Go, Python &amp; Shell</li>
+						<li class="fragment roll-in">Multi-host PaaS</li>
+						<li class="fragment roll-in">Integrate with open source ecosystem</li>
 					</ul>
 					<aside class="notes">
 						<p>
@@ -340,12 +379,12 @@
 					<h1>What is Cloud Foundry?</h1>
 					<br/>
 					<ul>
-						<li>Open source PaaS with Enterprise offerings</li>
-						<li>1,300 contributors, 711K lines of code, 3,000 PRs</li>
-						<li>Has it's own Buildpacks, similar to Heroku</li>
-						<li>Rich add-ons for 3rd party integration</li>
-						<li>A Marketplace of apps and services</li>
-						<li>App Metrics</li>
+						<li class="fragment roll-in">Open source PaaS with Enterprise offerings</li>
+						<li class="fragment roll-in">1,300 contributors, 711K lines of code, 3,000 PRs</li>
+						<li class="fragment roll-in">Has it's own Buildpacks, similar to Heroku</li>
+						<li class="fragment roll-in">Rich add-ons for 3rd party integration</li>
+						<li class="fragment roll-in">A Marketplace of apps and services</li>
+						<li class="fragment roll-in">App Metrics</li>
 					</ul>
 					<aside class="notes">
 						<p>
@@ -371,7 +410,7 @@
 					<img src="img/cfarch.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">	
 					<aside class="notes">
 						<p>
-						DEA manages Warden containers, stages and runs apps
+						DEA manages Warden containers, stages and runs apps. It uses consul for service discovery to be datacenter aware. 
 						</p>
 						<p>
 						When a new application or a new version of an application is pushed to Cloud Foundry, the Cloud Controller selects a DEA from the pool of available DEAs to stage the application. The DEA uses the appropriate buildpack to stage the application. 
@@ -381,16 +420,40 @@
 						</p>
 					</aside>
 				</section>
-				<section>
+
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Deploying to Cloud Foundry</h2>
+					```
+					Deploy an app
+					$ cf push myapp
+
+					Deploy a 3rd party service
+					$ cf marketplace
+					$ cf create-service p-mysql 100mb-dev mysqldev
+
+					Bind service to my app
+					$ cf bind-service myapp mysqldev
+					$ cf restage myapp
+
+					Configure and view app info
+					$ cf env myapp
+
+					Scale
+					$ cf scale myapp -i 2
+					```
+					</script>
+				</section>
+				<section data-background="img/patternbg.png" >
 					<h1>Resources</h1>
 					<br/>
 					<ul>
-						<li><a href="http://dokku.viewdocs.io/dokku/">http://dokku.viewdocs.io/dokku/</a></li>
-						<li><a href="http://docs.deis.io/en/latest/">http://docs.deis.io/en/latest/</a></li>
+						<li><a href="https://dokku.viewdocs.io/dokku/">https://dokku.viewdocs.io/dokku/</a></li>
+						<li><a href="https://docs.deis.io/en/latest/">https://docs.deis.io/en/latest/</a></li>
 						<li><a href="https://docs.cloudfoundry.org">https://docs.cloudfoundry.org</a></li>
 					</ul>
 				</section>
-				<section>
+				<section data-background-video="https://s3-us-west-2.amazonaws.com/coverr/mp4/Aloha-Mundo.mp4">
 					<h1>Q&A</h1>
 					<br/>
 					github/ritazh | @ritazzhang | https://ritazh.com
