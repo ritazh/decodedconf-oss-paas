@@ -88,7 +88,6 @@
 					</aside>
 				</section>
 				<section data-background="#ffffff">
-					<h1>What is Heroku?</h1>
 					<img src="img/herokudeployprocess.png" class="stretch" style="border:none;background:white;box-shadow:0 0 0">
 					<aside class="notes">
 						<p>
@@ -102,6 +101,34 @@
 							2: Compile
 							3: Release
 						</p>
+					</aside>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Deploying to Heroku</h2>
+					```
+					$  heroku create myapp
+					Creating myapp... done, stack is cedar-14
+					http://myapp.herokuapp.com/ | https://git.heroku.com/myapp.git
+					Git remote heroku added
+
+					$  git remote -v
+					heroku  https://git.heroku.com/myapp.git (fetch)
+					heroku  https://git.heroku.com/myapp.git (push)
+
+					$ git commit -m "commit for deploy to heroku"
+					...
+
+					$  git push heroku master
+					Initializing repository, done.
+					updating 'refs/heads/master'
+					...
+
+					```
+					</script>
+					<aside class="notes">
+					<p>
+					</p>
 					</aside>
 				</section>
 
@@ -366,17 +393,7 @@
 				<section>
 					<h1>Q&A</h1>
 					<br/>
-					<ul>
-						<li>
-						<span class="fragment"><i class="fa fa-mobile"></i> github/ritazh</span>
-						</li>
-						<li>
-						<span class="fragment"><i class="fa fa-cloud"></i> https://ritazh.com</span>
-						</li>
-						<li>
-						<span class="fragment fade-in"><i class="fa fa-lock"></i> @ritazzhang</span>
-						</li>
-					</ul>
+					github/ritazh | @ritazzhang | https://ritazh.com
 				</section>
 			</div>
 
