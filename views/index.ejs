@@ -118,7 +118,7 @@
 						Steps:
 							1: Detect language
 							2: Compile
-							3: Release
+							3: Release, push binaries to Dynos (linux containers)
 						</p>
 					</aside>
 				</section>
@@ -306,6 +306,11 @@
 					Set environment variables
 					$ dokku config:set myapp MYVARIABLE=myvalue
 
+					Releases, tags, and rollbacks
+					$ dokku tags myapp
+					$ dokku tags:create myapp v1.0.0
+					$ dokku tags:deploy myapp v1.0.0
+
 					```
 					</script>
 				</section>
@@ -446,16 +451,19 @@
 					<h1>Resources</h1>
 					<br/>
 					<ul>
+						<li><a href="https://github.com/ritazh/decodedconf-oss-paas">https://github.com/ritazh/decodedconf-oss-paas</a></li>
+						<li><a href="http://12factor.net/">http://12factor.net/</a></li>
 						<li><a href="https://dokku.viewdocs.io/dokku/">https://dokku.viewdocs.io/dokku/</a></li>
 						<li><a href="https://docs.deis.io/en/latest/">https://docs.deis.io/en/latest/</a></li>
 						<li><a href="https://docs.cloudfoundry.org">https://docs.cloudfoundry.org</a></li>
+						<li><a href="https://devcenter.heroku.com/articles/buildpacks">https://devcenter.heroku.com/articles/buildpacks</a></li>
+						
 					</ul>
 				</section>
 				<section data-background-video="https://s3-us-west-2.amazonaws.com/coverr/mp4/Aloha-Mundo.mp4">
 					<h1>Q&A</h1>
 					<br/>
 					github/ritazh | @ritazzhang | https://ritazh.com
-					<a href="https://github.com/ritazh/decodedconf-oss-paas">https://github.com/ritazh/decodedconf-oss-paas</a>
 				</section>
 			</div>
 
